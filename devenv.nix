@@ -3,12 +3,11 @@
     buf
     inotify-tools
     golangci-lint
-    gofumpt
   ];
 
   languages.go.enable = true;
 
-  scripts.fmt.exec = "gofumpt -l -w cmd internal";
+  scripts.fmt.exec = "golangci-lint fmt";
 
   scripts.run.exec = "go run cmd/main.go";
 
@@ -36,10 +35,10 @@
   '';
   pre-commit.hooks = {
     alejandra.enable = true;
-    gofumpt = {
+    golangci-lint = {
       enable = true;
-      name = "gofumpt";
-      entry = "${pkgs.gofumpt}/bin/gofumpt -d cmd internal";
+      name = "golangci-lint";
+      entry = "${pkgs.golangci-lint}/bin/golangci-lint fmt";
       types = ["go"];
     };
   };

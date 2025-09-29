@@ -1,10 +1,9 @@
 package main
 
 import (
+	"arian-tui/internal/app"
 	"fmt"
 	"os"
-
-	"arian-tui/internal/app"
 
 	tea "github.com/charmbracelet/bubbletea"
 )
