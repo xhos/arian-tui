@@ -1,10 +1,12 @@
 package main
 
 import (
-	"arian-tui/internal/app"
 	"fmt"
-	tea "github.com/charmbracelet/bubbletea"
 	"os"
+
+	"arian-tui/internal/app"
+
+	tea "github.com/charmbracelet/bubbletea"
 )
 
 func main() {
