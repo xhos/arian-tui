@@ -1,19 +1,14 @@
-{ pkgs, ... }: {
-  packages = with pkgs; [ 
+{ pkgs, ... }:
+{
+  packages = with pkgs; [
     buf
-    entr
     inotify-tools
-    protoc-gen-go-grpc
-    protoc-gen-go
+    golangci-lint
   ];
 
   languages.go.enable = true;
 
   scripts.run.exec = "go run cmd/main.go";
-
-  scripts.watch.exec = ''
-    fd -e go -E tmp -E .git -E .devenv -E vendor | entr -r sh -c 'go build -o tmp/arian-tui ./cmd/main.go && ./tmp/arian-tui'
-  '';
 
   scripts.watch-exec.exec = ''
     while true; do
